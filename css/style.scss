@@ -1,0 +1,98 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;700&display=swap");
+
+// Variables
+$primaryColor: #56268f;
+$secondaryColor: #f9b26b;
+$tertiaryColoor: #ffce2b;
+$textColor: #877e9a;
+// Mixin
+@mixin tombol {
+    display: inline-block;
+    background-color: $primaryColor;
+    color: white;
+    border-radius: 2em;
+    padding: 0.5em 2em;
+    font-size: large;
+    text-transform: uppercase;
+    &:hover {
+        color: $primaryColor;
+        border: 1px solid $primaryColor;
+        background-color: transparent;
+    }
+}
+// Styles
+body {
+    font-family: "Montserrat", sans-serif;
+    &::before {
+        content: "";
+        opacity: 0.8;
+        position: absolute;
+        top: -8em;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-image: url(../assets/background.png);
+        background-position: top right;
+        background-repeat: no-repeat;
+        background-size: 105vmax;
+        @media screen and (max-width: 992px) {
+            opacity: 0.4;
+        }
+    }
+}
+// Navbar
+.custom-nav {
+    background: none;
+    #navbarNav {
+        @media screen and (max-width: 992px) {
+            margin-left: -2em;
+        }
+        .navbar-nav {
+            .nav-item {
+                a {
+                    color: $primaryColor;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    margin-left: 2.4em;
+                    &:hover {
+                        color: darken($primaryColor, $amount: 30%);
+                        transition: 0.3s color ease;
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 992px) {
+        margin-top: -1em;
+    }
+}
+.home-section {
+    margin-top: 3em;
+    h2 {
+        text-transform: uppercase;
+        color: $primaryColor;
+        font-weight: 700;
+    }
+    p {
+        font-size: 0.85rem;
+        margin-top: 1.2em;
+        color: $textColor;
+    }
+    a {
+        margin-top: 2em;
+        @include tombol();
+    }
+    @media screen and(max-width: 992px) {
+        margin-top: -2em;
+        text-align: center;
+        h2,
+        h3,
+        p {
+            text-shadow: 1px 1px 2px rgba($textColor, 0.4);
+        }
+        p {
+            color: black;
+        }
+    }
+}
